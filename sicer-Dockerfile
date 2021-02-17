@@ -17,7 +17,13 @@
 
 ## BASE IMAGE
 FROM madetunj/bedtools:v2.25.0
+
 MAINTAINER Modupeore Adetunji "modupeore.adetunji@stjude.org"
+LABEL package="sicer2"
+LABEL version="1.0.2"
+LABEL maintainer="modupeore.adetunji@stjude.org"
+LABEL description="SICER2 (https://zanglab.github.io/SICER2/) docker image"
+
 WORKDIR /tmp
 
 ## INSTALL SICER

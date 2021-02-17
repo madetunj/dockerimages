@@ -17,7 +17,13 @@
 
 ## BASE IMAGE
 FROM madetunj/samtools:v1.9
+
 MAINTAINER Modupeore Adetunji "modupeore.adetunji@stjude.org"
+LABEL package="spp"
+LABEL version="1.16.0"
+LABEL maintainer="modupeore.adetunji@stjude.org"
+LABEL description="SPP (http://www.encodeproject.org/software/spp) docker image"
+
 WORKDIR /tmp
 
 # R PACKAGES VERSIONS

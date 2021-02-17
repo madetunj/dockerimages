@@ -1,0 +1,70 @@
+#################################################################
+# Dockerfile
+#
+# Software:         bioinformatics base image for the Abraham Lab
+# Software Version: 1.0.0
+# Description:      Abraham lab bioinformatics pipelines base image
+# Website:          
+# Provides:         wget, zip, seaseq custom scripts, etc
+# Base Image:       ubuntu:18.04
+# Build Cmd:        docker build --rm -t madetunj/binf-base:1.0.0 -t madetunj/binf-base:latest -f binf-Dockerfile .
+# Pull Cmd:         docker pull madetunj/binf-base:1.0.0
+# Run Cmd:          docker run --rm -ti madetunj/binf-base:1.0.0
+#################################################################
+
+## BASE IMAGE
+FROM ubuntu:18.04
+
+MAINTAINER Modupeore Adetunji 'modupeore.adetunji@stjude.org'
+LABEL maintainer="modupeore.adetunji@stjude.org"
+LABEL version="1.0.0"
+LABEL description="This is the bioinformatics pipelines base image \
+containing versioned set of tools used in building programs \
+utilized for the Abraham lab."
+
+ENV DEBIAN_FRONTEND noninteractive
+
+## apt update and install global requirements
+RUN apt-get clean all &&    \
+    apt-get update &&       \
+    apt-get upgrade -y &&   \
+    apt-get install -y --no-install-recommends \
+        openjdk-11-jdk-headless \
+        curl                \
+        git                 \
+        wget                \
+        zip                 \
+        unzip               \
+        build-essential     \
+        python3.8           \
+        zlib1g-dev          \
+        apt-utils           \
+        ed                  \
+        less                \
+        locales             \
+        vim-tiny            \
+        ca-certificates     \
+        apt-transport-https \
+        gsfonts             \
+        gnupg2              \
+        curl                \
+        nodejs              \
+        bc                  \
+        python2.7           \
+        python3-numpy       \
+        python3-scipy       \
+        python3-pip         \
+        python3.8-dev       \
+        python3-setuptools  \
+        gawk                \
+        rsync               \
+        libtbb-dev          \
+        libcurl3-dev        \
+        libbz2-dev          \
+        liblzma-dev         \
+        libssl-dev &&       \
+    apt-get clean &&        \
+    apt-get purge &&        \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
+RUN cp /usr/bin/python3.8 /usr/bin/python

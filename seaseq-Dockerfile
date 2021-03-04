@@ -2,29 +2,33 @@
 # Dockerfile
 #
 # Software:         SEASEQ custom scripts image
-# Software Version: 1.0.1
+# Software Version: 1.0.0
 # Description:      Custom scripts utilized in the seaseq program
 # Website:          https://github.com/stjude/seaseq
 # Provides:         SEASEQ custom scripts, quality metrics, etc
-# Base Image:       madetunj/binf-base:1.0.0
-# Build Cmd:        docker build --rm -t madetunj/seaseq:v1.0.1 -t madetunj/seaseq:latest -f seaseq-Dockerfile .
-# Pull Cmd:         docker pull madetunj/seaseq:v1.0.1
-# Run Cmd:          docker run --rm -ti madetunj/seaseq:v1.0.1
+# Base Image:       abralab/bedtools:v2.25.0
+# Build Cmd:        docker build --rm -t abralab/seaseq:v1.0.0 -t abralab/seaseq:latest -f seaseq-Dockerfile .
+# Pull Cmd:         docker pull abralab/seaseq:v1.0.0
+# Run Cmd:          docker run --rm -ti abralab/seaseq:v1.0.0
 #################################################################
 
 ## BASE IMAGE
-FROM madetunj/binf-base:1.0.0
+FROM abralab/bedtools:v2.25.0
 
 MAINTAINER Modupeore Adetunji "modupeore.adetunji@stjude.org"
-LABEL version="1.0.1"
+LABEL version="1.0.0"
 LABEL maintainer="modupeore.adetunji@stjude.org"
 LABEL description="Single-End Analysis SEQuencing pipeline (SEASEQ): \
 ChIP-Seq/CUT&RUN data analysis pipeline custom scripts"
 
 WORKDIR /tmp
 
-## INSTALL SEASEQ
-ENV SEASEQ_VERSION 1.1-scripts
-ENV SEASEQ_URL "http://github.com/stjude/seaseq/archive/v${SEASEQ_VERSION}.tar.gz"
-RUN cd /opt && wget ${SEASEQ_URL} && tar -xf v${SEASEQ_VERSION}.tar.gz; \
-    cp -rf /opt/seaseq-${SEASEQ_VERSION}/* /usr/local/bin
+##INSTALL matplotlib
+RUN python3 -m pip install matplotlib
+
+## INSTALL SEASEQ + scripts
+ENV SEASEQ_VERSION 1.0
+ENV SEASEQ_URL "http://github.com/stjude/seaseq/archive/${SEASEQ_VERSION}.tar.gz"
+RUN cd /opt && wget ${SEASEQ_URL} && tar -xf ${SEASEQ_VERSION}.tar.gz; \
+    cp -rf /opt/seaseq-${SEASEQ_VERSION}/* /usr/local/bin; \
+    cp -rf /opt/seaseq-${SEASEQ_VERSION}/scripts/* /usr/local/bin; 

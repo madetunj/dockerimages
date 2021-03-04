@@ -6,10 +6,10 @@
 # Description:      BAM2GFF image
 # Website:          https://github.com/stjude/BAM2GFF
 # Provides:         BAMTOGFF suite
-# Base Image:       madetunj/spp:v1.16.0
-# Build Cmd:        docker build --rm -t madetunj/bamtogff:v1.2.0 -f bamtogff-Dockerfile .
-# Pull Cmd:         docker pull madetunj/bamtogff:v1.2.0
-# Run Cmd:          docker run --rm -ti madetunj/bamtogff:v1.2.0 
+# Base Image:       abralab/spp:v1.16.0
+# Build Cmd:        docker build --rm -t abralab/bamtogff:v1.2.0 -f bamtogff-Dockerfile .
+# Pull Cmd:         docker pull abralab/bamtogff:v1.2.0
+# Run Cmd:          docker run --rm -ti abralab/bamtogff:v1.2.0 
 #################################################################
 
 ## DEPENDENCIES
@@ -17,10 +17,10 @@
 #   samtools
 #   R
 
-FROM madetunj/bedtools:v2.25.0 as frombed
+FROM abralab/bedtools:v2.25.0 as frombed
 
 ## BASE IMAGE
-FROM madetunj/spp:v1.16.0
+FROM abralab/spp:v1.16.0
 
 MAINTAINER Modupeore Adetunji "modupeore.adetunji@stjude.org"
 LABEL package="bamtogff"

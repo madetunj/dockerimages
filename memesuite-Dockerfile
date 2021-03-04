@@ -6,14 +6,14 @@
 # Description:      MEMESUITE image
 # Website:          http://meme-suite.org/
 # Provides:         memesuite
-# Base Image:       madetunj/binf-base:1.0.0
-# Build Cmd:        docker build --rm -t madetunj/memesuite:v5.1.1 -f memesuite-Dockerfile .
-# Pull Cmd:         docker pull madetunj/memesuite:v5.1.1
-# Run Cmd:          docker run --rm -ti madetunj/memesuite:v5.1.1
+# Base Image:       abralab/binf-base:1.0.0
+# Build Cmd:        docker build --rm -t abralab/memesuite:v5.1.1 -f memesuite-Dockerfile .
+# Pull Cmd:         docker pull abralab/memesuite:v5.1.1
+# Run Cmd:          docker run --rm -ti abralab/memesuite:v5.1.1
 #################################################################
 
 ## BASE IMAGE
-FROM madetunj/binf-base:1.0.0
+FROM abralab/binf-base:1.0.0
 
 MAINTAINER Modupeore Adetunji "modupeore.adetunji@stjude.org"
 LABEL package="MEME Suite"

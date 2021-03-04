@@ -1,15 +1,15 @@
 #################################################################
 # Dockerfile
 #
-# Software:         BAM2GFF
+# Software:         BAMTOGFF
 # Software Version: 1.2.0
 # Description:      BAM2GFF image
 # Website:          https://github.com/stjude/BAM2GFF
-# Provides:         BAM2GFF suite
-# Base Image:       madetunj/spp:v1.16.0
-# Build Cmd:        docker build --rm -t madetunj/bam2gff:v1.2.0 -f bam2gff-Dockerfile .
-# Pull Cmd:         docker pull madetunj/bam2gff:v1.2.0
-# Run Cmd:          docker run --rm -ti madetunj/bam2gff:v1.2.0 
+# Provides:         BAMTOGFF suite
+# Base Image:       abralab/spp:v1.16.0
+# Build Cmd:        docker build --rm -t abralab/bamtogff:v1.2.0 -f bamtogff-Dockerfile .
+# Pull Cmd:         docker pull abralab/bamtogff:v1.2.0
+# Run Cmd:          docker run --rm -ti abralab/bamtogff:v1.2.0 
 #################################################################
 
 ## DEPENDENCIES
@@ -17,11 +17,17 @@
 #   samtools
 #   R
 
-FROM madetunj/bedtools:v2.25.0 as frombed
+FROM abralab/bedtools:v2.25.0 as frombed
 
 ## BASE IMAGE
-FROM madetunj/spp:v1.16.0
+FROM abralab/spp:v1.16.0
+
 MAINTAINER Modupeore Adetunji "modupeore.adetunji@stjude.org"
+LABEL package="bamtogff"
+LABEL version="1.2.0"
+LABEL maintainer="modupeore.adetunji@stjude.org"
+LABEL description="BAMToGFF (https://github.com/stjude/BAM2GFF) docker image"
+
 WORKDIR /tmp
 
 ##INSTALL R package "optparse"

@@ -6,18 +6,24 @@
 # Description:      SICER2 image
 # Website:          https://zanglab.github.io/SICER2/
 # Provides:         sicer
-# Base Image:       madetunj/bedtools:v2.25.0
-# Build Cmd:        docker build --rm -t madetunj/sicer:v1.0.2 -f sicer-Dockerfile .
-# Pull Cmd:         docker pull madetunj/sicer:v1.0.2
-# Run Cmd:          docker run --rm -ti madetunj/sicer:v1.0.2 
+# Base Image:       abralab/bedtools:v2.25.0
+# Build Cmd:        docker build --rm -t abralab/sicer:v1.0.2 -f sicer-Dockerfile .
+# Pull Cmd:         docker pull abralab/sicer:v1.0.2
+# Run Cmd:          docker run --rm -ti abralab/sicer:v1.0.2 
 #################################################################
 
 ## DEPENDENCIES
 #   bedtools
 
 ## BASE IMAGE
-FROM madetunj/bedtools:v2.25.0
+FROM abralab/bedtools:v2.25.0
+
 MAINTAINER Modupeore Adetunji "modupeore.adetunji@stjude.org"
+LABEL package="sicer2"
+LABEL version="1.0.2"
+LABEL maintainer="modupeore.adetunji@stjude.org"
+LABEL description="SICER2 (https://zanglab.github.io/SICER2/) docker image"
+
 WORKDIR /tmp
 
 ## INSTALL SICER

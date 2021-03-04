@@ -6,18 +6,24 @@
 # Description:      BEDtools image
 # Website:          http://bedtools.readthedocs.io/
 # Provides:         bedtools
-# Base Image:       madetunj/seaseq:v1.0.0
-# Build Cmd:        docker build --rm -t madetunj/bedtools:v2.25.0 -f bedtools-Dockerfile .
-# Pull Cmd:         docker pull madetunj/bedtools:v2.25.0
-# Run Cmd:          docker run --rm -ti madetunj/bedtools:v2.25.0 
+# Base Image:       abralab/binf-base:1.0.0
+# Build Cmd:        docker build --rm -t abralab/bedtools:v2.25.0 -f bedtools-Dockerfile .
+# Pull Cmd:         docker pull abralab/bedtools:v2.25.0
+# Run Cmd:          docker run --rm -ti abralab/bedtools:v2.25.0 
 #################################################################
 
 ## BASE IMAGE
-FROM madetunj/seaseq:v1.0.0
-MAINTAINER Modupeore Adetunji "modupeore.adetunji@stjude.org"
+FROM abralab/binf-base:1.0.0
+
+MAINTAINER Modupeore Adetunji 'modupeore.adetunji@stjude.org'
+LABEL package="bedtools"
+LABEL version="2.25.0"
+LABEL maintainer="modupeore.adetunji@stjude.org"
+LABEL description="bedtools (https://bedtools.readthedocs.io/) docker image"
+
 WORKDIR /tmp
 
-##INSTALL BEDTOOLS
+## INSTALL BEDTOOLS
 ENV BEDTOOLS_VERSION 2.25.0
 ENV BEDTOOLS_NAME bedtools
 ENV BEDTOOLS_URL "http://github.com/arq5x/bedtools2/releases/download/v${BEDTOOLS_VERSION}/${BEDTOOLS_NAME}-${BEDTOOLS_VERSION}.tar.gz"

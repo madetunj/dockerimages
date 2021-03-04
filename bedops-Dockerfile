@@ -6,14 +6,14 @@
 # Description:      BEDOPs image
 # Website:          http://bedops.readthedocs.io/
 # Provides:         bedops
-# Base Image:       madetunj/binf-base:1.0.0
-# Build Cmd:        docker build --rm -t madetunj/bedops:v2.4.37 -f bedops-Dockerfile .
-# Pull Cmd:         docker pull madetunj/bedtops:v2.4.37
-# Run Cmd:          docker run --rm -ti madetunj/bedops:v2.4.37
+# Base Image:       abralab/binf-base:1.0.0
+# Build Cmd:        docker build --rm -t abralab/bedops:v2.4.37 -f bedops-Dockerfile .
+# Pull Cmd:         docker pull abralab/bedtops:v2.4.37
+# Run Cmd:          docker run --rm -ti abralab/bedops:v2.4.37
 #################################################################
 
 ## BASE IMAGE
-FROM madetunj/binf-base:1.0.0
+FROM abralab/binf-base:1.0.0
 
 MAINTAINER Modupeore Adetunji "modupeore.adetunji@stjude.org"
 LABEL package="BEDOPS"

@@ -60,5 +60,5 @@ RUN apt-get clean && \
 
 ## NOTES:
 #	4/12/2021
-#	changed memesuite v5.1.1 to v5.3.3: dreme had missing python dependency (aplhabet_py3)
+#	changed memesuite v5.1.1 to v5.3.3: dreme had missing python dependency (alphabet_py3)
 #	v5.3.3 deprecated dreme and now run streme under meme-chip

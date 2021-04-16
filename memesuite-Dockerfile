@@ -2,14 +2,14 @@
 # Dockerfile
 #
 # Software:         memesuite
-# Software Version: 5.1.1
+# Software Version: 5.3.3
 # Description:      MEMESUITE image
 # Website:          http://meme-suite.org/
 # Provides:         memesuite
 # Base Image:       abralab/binf-base:1.0.0
-# Build Cmd:        docker build --rm -t abralab/memesuite:v5.1.1 -f memesuite-Dockerfile .
-# Pull Cmd:         docker pull abralab/memesuite:v5.1.1
-# Run Cmd:          docker run --rm -ti abralab/memesuite:v5.1.1
+# Build Cmd:        docker build --rm -t abralab/memesuite:v5.3.3 -f memesuite-Dockerfile .
+# Pull Cmd:         docker pull abralab/memesuite:v5.3.3
+# Run Cmd:          docker run --rm -ti abralab/memesuite:v5.3.3
 #################################################################
 
 ## BASE IMAGE
@@ -17,13 +17,13 @@ FROM abralab/binf-base:1.0.0
 
 MAINTAINER Modupeore Adetunji "modupeore.adetunji@stjude.org"
 LABEL package="MEME Suite"
-LABEL version="5.1.1"
+LABEL version="5.3.3"
 LABEL maintainer="modupeore.adetunji@stjude.org"
 LABEL description="MEME Suite (http://meme-suite.org/) docker image"
 
 WORKDIR /tmp
 
-ENV MEME_VERSION 5.1.1
+ENV MEME_VERSION 5.3.3
 ENV MEME_URL http://meme-suite.org/meme-software/${MEME_VERSION}/meme-${MEME_VERSION}.tar.gz
 ENV MEME_DIR /opt/meme
 
@@ -57,3 +57,8 @@ RUN apt-get clean && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/* && \
     strip /usr/local/bin/*; true
+
+## NOTES:
+#	4/12/2021
+#	changed memesuite v5.1.1 to v5.3.3: dreme had missing python dependency (alphabet_py3)
+#	v5.3.3 deprecated dreme and now run streme under meme-chip

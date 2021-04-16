@@ -82,4 +82,4 @@ RUN R -e "install.packages('spp', version='1.16.0', dependencies=TRUE)"
 
 ## ADD run SPP script TO BASE IMAGE
 COPY --from=fromseaseq /usr/local/bin/run_spp.R /usr/local/bin
-RUN chmod u+x /usr/local/bin/run_spp.R
+RUN chmod 755 /usr/local/bin/run_spp.R

@@ -32,5 +32,12 @@ ENV SICER_NAME SICER2
 ENV SICER_URL http://github.com/zanglab/SICER2/archive/v${SICER_VERSION}.zip
 
 RUN cd /opt && wget $SICER_URL && unzip v${SICER_VERSION}.zip && \
-    cd ${SICER_NAME}-${SICER_VERSION} && \
+    cd ${SICER_NAME}-${SICER_VERSION}; \
+    sed -ibak "s/bg_number_chroms\ =\ 1/bg_number_chroms\ =\ 20/" sicer/lib/GenomeData.py; \
     python setup.py install 
+
+##NOTES:
+#	4/16/2021
+#	changed number of background chromosomes to 20 to workaround the species required input.
+#	this is to allow for genomes that aren't listed in the sicer/lib/GenomeData.py file 
+#	now for typical sicer run, species will be "background" 
